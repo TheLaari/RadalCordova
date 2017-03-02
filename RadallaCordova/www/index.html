@@ -13,25 +13,36 @@
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>Radal</title>
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="scripts/platformOverrides.js"></script>
-        <script type="text/javascript" src="scripts/index.js"></script>
+        <script type="text/javascript" src="scripts/platformOverrides.js"></script> 
         <script type="text/javascript" src="scripts/jquery-3.1.1.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $.getJSON("https://rata.digitraffic.fi/infra-api/0.2/kilometrimerkit.json?bbox=237856%2C6553600%2C500000%2C6815744&count=1&time=2017-03-01T00%3A00%3A00Z%2F2017-03-01T00%3A00%3A00Z", function (result) {
- $.each(result, function(i, field){
- $("#output").append(field);
- });
- });
- });
-        </script>
+        <script type="text/javascript" src="scripts/geopoint.js"></script>
+        <script type="text/javascript" src="scripts/index.js"></script>
+                <!--<script type="text/javascript">
+
+                    $.ajax({
+                        type: 'GET',
+                        url: 'https://rata.digitraffic.fi/infra-api/0.2/kilometrimerkit.json?bbox=237856%2C6553600%2C500000%2C6815744&count=1&time=2017-03-01T00%3A00%3A00Z%2F2017-03-01T00%3A00%3A00Z',
+                        async: false,
+                        jsonpCallback: 'jsonCallback',
+                        contentType: "application/json",
+                        dataType: 'jsonp',
+                        success: function (data) {
+                            $('#jsonp-results').html(JSON.stringify(data));
+                            console.log(json);
+                        },
+                        error: function (e) {
+                            alert(e.message);
+                        }
+
+                    });
+        </script>-->
     </head>
 
     <body>
         <p id="demo"></p>
             <div>
-                <button> Click Me</button><br>
-                <div id="output">ok</div>
+                <h1>Radal</h1><br>
+                <div id="jsonp-results">ok</div>
             </div>
         
     </body>
